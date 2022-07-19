@@ -12,27 +12,27 @@ From this point, you can see the steps of the assignment we should follow.
 - [x] In the root of the project make a server and a client folder.
     - [x] In the server folder, make a server.js file
     - [x] In the client file make a html, css and js file. Link them in the html. 
-- [ ] In the server folder, do the <code>npm init</code> command.
-    - [ ] The default values for the following prompts are fine, but play around if you like.
-    - [ ] This will generate a package.json with some information about our project and it's dependencies.
-- [ ] Next we are going to install express
-    - [ ] <code>npm install express --save</code>
-    - [ ] Go take a look at the package.json, it's there!
-- [ ] In the server.js file, let's require express and http
-    - [ ] <code>const express = require('express');</code>
-    - [ ] <code>const http = require('http');</code>
+- [x] In the server folder, do the <code>npm init</code> command.
+    - [x] The default values for the following prompts are fine, but play around if you like.
+    - [x] This will generate a package.json with some information about our project and it's dependencies.
+- [x] Next we are going to install express
+    - [x] <code>npm install express --save</code>
+    - [x] Go take a look at the package.json, it's there!
+- [x] In the server.js file, let's require express and http
+    - [x] <code>const express = require('express');</code>
+    - [x] <code>const http = require('http');</code>
 - [ ] We will use express and http to make it easy to host our client
-    - [ ] <code>const app = express();</code> To define our application
-    - [ ] <code>const clientPath = \`${__dirname}/../client\`;</code> To give the path to our client
-    - [ ] <code>app.use(express.static(clientPath));</code> To use express to host the client
-    - [ ] <code>const server = http.createServer(app);</code> To use http to serve the app that express provides
-    - [ ] One more step to get the server live
-      - ```
+    - [x] <code>const app = express();</code> To define our application
+    - [x] <code>const clientPath = \`${__dirname}/../client\`;</code> To give the path to our client
+    - [x] <code>app.use(express.static(clientPath));</code> To use express to host the client
+    - [x] <code>const server = http.createServer(app);</code> To use http to serve the app that express provides
+    - [x] One more step to get the server live
+  ```
       server.listen(8080, () =>{
-       console.log("server running on "+port);
+         console.log("server running on "+port);
       });
-      ```
-      - <code>node server</code> and check your server out on localhost with the correct port!
+  ```
+  - [x] <code>node server</code> and check your server out on localhost with the correct port!
 - [ ] Time to get socket.io installed
     - [ ] <code>npm install socket.io --save</code>
     - [ ] It's now inside of the package.json dependencies!
