@@ -33,23 +33,23 @@ From this point, you can see the steps of the assignment we should follow.
       });
   ```
   - [x] <code>node server</code> and check your server out on localhost with the correct port!
-- [ ] Time to get socket.io installed
-    - [ ] <code>npm install socket.io --save</code>
-    - [ ] It's now inside of the package.json dependencies!
-- [ ] Time to set it up in the server
-    - [ ] <code>const io = require('socket.io')(server);</code> to require socket.io!
-    - [ ] The io variable is now the entry point of all the sockets connected to the server
+- [x] Time to get socket.io installed
+    - [x] <code>npm install socket.io --save</code>
+    - [x] It's now inside of the package.json dependencies!
+- [x] Time to set it up in the server
+    - [x] <code>const io = require('socket.io')(server);</code> to require socket.io!
+    - [x] The io variable is now the entry point of all the sockets connected to the server
 - [ ] The server now is ready to use socket.io, but for the client we still need to add the connection to socket.io
-    - [ ] Add ```<script src="/socket.io/socket.io.js"></script>``` above your other script in the client html.
-    - [ ] Add <code>let socket = io.connect();</code> to your script to define your socket.
-- [ ] Now we can start by making a connection from your client to your server
-    - [ ] In your server.js, add the following code
+    - [x] Add ```<script src="/socket.io/socket.io.js"></script>``` above your other script in the client html.
+    - [x] Add <code>let socket = io.connect();</code> to your script to define your socket.
+- [x] Now we can start by making a connection from your client to your server
+    - [x] In your server.js, add the following code
     - ```
       io.on('connection', (socket) => {
           console.log('someone connected');
       });
       ```
-    - [ ] If you open up your blank page at localhost 8080 nothing much will happen, but go take a look at the terminal which is running your server! In here you will see that someone connected!
+    - [x] If you open up your blank page at localhost 8080 nothing much will happen, but go take a look at the terminal which is running your server! In here you will see that someone connected!
 - [ ] At this moment you can connect with multiple devices to your server, try adding a little code to verify this.
     - [ ] In your server make a counter: <code>let counter = 0</code>
     - [ ] Change your console log in the connection to: <code>console.log(counter+' someone connected');</code>
@@ -127,4 +127,22 @@ For the nice to haves, you definitely will need to research the documentation fo
 Go check it out at https://socket.io/docs/v4 
 
 ---
+
+## Someone connected!
+Getting a connection with the server went smoothly, but with the sockets is where I started to struggle more than I anticipated.
+And that's all thanks to this piece of code:
+````
+let socket = io.connect();
+````
+When I placed in it in the server.js, I couldn't connect to the server anymore.
+At first I thought I installed socket.io wrong, or there was something wrong with my require(socket.io).
+But after some **very thorough** testing, this wasn't the case.
+So I went back to the TO-DO list to repeat some steps and re-read the steps.
+
+That's when I found the issue.
+Because I was so concentrated on the server.js file, I completely forgot I made another JS file.
+And apparently I had to add that piece of code to the scripts.js file.
+Once I did that, everything worked smoothly.
+
+At that moment the only thought in my head was "I thank the Lord that I don't have gargantuan hands" because the facepalm I did after this realization would've broken the sound barrier.
 
