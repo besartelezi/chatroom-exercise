@@ -16,3 +16,9 @@ const server = http.createServer(app);
 server.listen(8080, () =>{
     console.log("server running on "+8080);
 });
+
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+    console.log('someone connected');
+});
