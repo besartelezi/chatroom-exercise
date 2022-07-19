@@ -21,7 +21,7 @@ From this point, you can see the steps of the assignment we should follow.
 - [x] In the server.js file, let's require express and http
     - [x] <code>const express = require('express');</code>
     - [x] <code>const http = require('http');</code>
-- [ ] We will use express and http to make it easy to host our client
+- [x] We will use express and http to make it easy to host our client
     - [x] <code>const app = express();</code> To define our application
     - [x] <code>const clientPath = \`${__dirname}/../client\`;</code> To give the path to our client
     - [x] <code>app.use(express.static(clientPath));</code> To use express to host the client
@@ -39,7 +39,7 @@ From this point, you can see the steps of the assignment we should follow.
 - [x] Time to set it up in the server
     - [x] <code>const io = require('socket.io')(server);</code> to require socket.io!
     - [x] The io variable is now the entry point of all the sockets connected to the server
-- [ ] The server now is ready to use socket.io, but for the client we still need to add the connection to socket.io
+- [x] The server now is ready to use socket.io, but for the client we still need to add the connection to socket.io
     - [x] Add ```<script src="/socket.io/socket.io.js"></script>``` above your other script in the client html.
     - [x] Add <code>let socket = io.connect();</code> to your script to define your socket.
 - [x] Now we can start by making a connection from your client to your server
@@ -50,41 +50,41 @@ From this point, you can see the steps of the assignment we should follow.
       });
       ```
     - [x] If you open up your blank page at localhost 8080 nothing much will happen, but go take a look at the terminal which is running your server! In here you will see that someone connected!
-- [ ] At this moment you can connect with multiple devices to your server, try adding a little code to verify this.
-    - [ ] In your server make a counter: <code>let counter = 0</code>
-    - [ ] Change your console log in the connection to: <code>console.log(counter+' someone connected');</code>
-    - [ ] Make the counter go up by 1 every time someone connects.
-    - [ ] Now try connecting in 2 different browser tabs, in your terminal you will now see
-        - ```
+- [x] At this moment you can connect with multiple devices to your server, try adding a little code to verify this.
+    - [x] In your server make a counter: <code>let counter = 0</code>
+    - [x] Change your console log in the connection to: <code>console.log(counter+' someone connected');</code>
+    - [x] Make the counter go up by 1 every time someone connects.
+    - [x] Now try connecting in 2 different browser tabs, in your terminal you will now see
+      ```
         0 someone connected
         1 someone connected
         ```
-        - As you can see you can now connect with multiple devices to the same server.
-- [ ] Now let's make something happen, add an input field, 2 buttons and a target div.
-    - [ ] The input will contain your message
-    - [ ] 1 button that sends this message to all connected clients
-    - [ ] 1 button that sends this message to you only
-    - [ ] A target div where all messages will be displayed
-- [ ] On click of a button, do an emit to the server. The server will receive this and react appropriately after we give the server the instructions of what to do on said action.
-    - [ ] For example, to send the message to everyone: <code>socket.emit('sendToAll', ('message'));</code>
-    - [ ] Your server will now receive the call 'sendToAll', now we need to write code to make it react appropriately
-- [ ] In the connection function in your server, add the following:
-    - ```
+    - As you can see you can now connect with multiple devices to the same server.
+- [x] Now let's make something happen, add an input field, 2 buttons and a target div.
+    - [x] The input will contain your message
+    - [x] 1 button that sends this message to all connected clients
+    - [x] 1 button that sends this message to you only
+    - [x] A target div where all messages will be displayed
+- [x] On click of a button, do an emit to the server. The server will receive this and react appropriately after we give the server the instructions of what to do on said action.
+    - [x] For example, to send the message to everyone: <code>socket.emit('sendToAll', ('message'));</code>
+    - [x] Your server will now receive the call 'sendToAll', now we need to write code to make it react appropriately
+- [x] In the connection function in your server, add the following:
+  ```
         socket.on('sendToAll', (message) =>{
             io.emit("displayMessage", (message));
         });
-      ```
+  ```
     - This is an observer that waits until the message "sendToAll" gets passed to the server.
     - When we press the button on the client, because of our emit on the client, the server will receive the 'sendToAll' call and execute the piece of code within on the server.
     - The io.emit on the server means that the server will now send the call to 'displayMessage' to ALL clients connected and also passes the message back as a parameter.
-- [ ] We have now sent the message from the client to the server, now we just need to receive it back from the server.
-    - [ ] In the client add:
-    - ```
+- [x] We have now sent the message from the client to the server, now we just need to receive it back from the server.
+    - [x] In the client add:
+  ```
         socket.on('displayMessage', (message) => {
             target.innerHTML += '<br>'+message;
         });
-      ```
-    - [ ] So now your client is waiting for the call to 'displayMessage' and then it will add that message to your target div.
+  ```
+    - [x] So now your client is waiting for the call to 'displayMessage' and then it will add that message to your target div.
     - [ ] Try connecting with a few browser tabs and sending messages to each other.
 - [ ] So now we can send a message to everyone, let's see if we can send some messages that only the sender can see.
     - [ ] In your client, replicate the 'sendToAll' emit but now change it to be 'sendToMe'.
