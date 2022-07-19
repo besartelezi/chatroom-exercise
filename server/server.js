@@ -27,4 +27,8 @@ const io = require('socket.io')(server);
 io.on('connection', (socket) => {
     console.log(counter+' someone connected');
     counter++
+
+    socket.on('sendToAll', (message) =>{
+        io.emit("displayMessage", (message));
+    });
 });
