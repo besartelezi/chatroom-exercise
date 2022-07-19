@@ -90,16 +90,16 @@ From this point, you can see the steps of the assignment we should follow.
     - [x] In your client, replicate the 'sendToAll' emit but now change it to be 'sendToMe'.
     - [x] Now in the server you also have to make an observer for the message "sendToMe", so go ahead and replicate the "sendToAll" observer in the server.
     - [x] Now instead of doing an io.emit, we are going to do a socket.emit. The difference here is that if you emit to io, all connected clients will receive the message, whereas the socket.emit will only send it back to the socket of which it received the message.
-    - [ ] Try it out by opening some tabs and send a message to yourself. If only that client can see it, and the others don't receive it you've completed this step
+    - [x] Try it out by opening some tabs and send a message to yourself. If only that client can see it, and the others don't receive it you've completed this step
 - [x] Now we have all the tools we need to make a basic chatroom. The requirements you need to add will come with a small tip on how to achieve them.
 
 ### Must-have features
 
 - [ ] Make a UI that makes it easy for people to send messages in this chatroom.
 - [x] It must be possible to send a message to everyone or to yourself
-- [ ] Make sure we can identify who sent the message through a username.
+- [x] Make sure we can identify who sent the message through a username.
     - [x] We could make a local variable and prompt the user to choose a username
-    - [ ] We can then emit this username along with the sent message to keep track of who sent what.
+    - [x] We can then emit this username along with the sent message to keep track of who sent what.
 - [ ] Make a list to show everyone who is connected to the chatroom
 - [ ] Implement something funny! The sky is the limit! (it can be very simple if you want)
     - [ ] For example, you could make a functionality to make someone else's font size obscurely small!
@@ -155,3 +155,13 @@ I do hope, that I do not lose my own humanity in the process, all for the sake o
 I hope I can make myself proud on this assignment and achieve this personal goal of mine.
 
 ![alt-text](images/graphic_design_is_my_passion.jpg)
+
+## Pro Tip #1, Did ya try turning it off and on again?
+Just a small tip for my future self and all readers.
+If you have a bug while working on Node.JS and you can't for the life of you understand what's going wrong.
+Just restart the server.
+Why, you may ask? Because...
+
+![alt-text](images/60-percent.gif)
+
+The amount of weird bugs that were fixed like this is both as staggering as it is headache-inducing.
