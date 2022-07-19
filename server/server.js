@@ -28,18 +28,22 @@ io.on('connection', (socket) => {
     console.log(counter+' someone connected');
     counter++
 
+    //socket to display username for messages to all
     socket.on('showUsername', (username) =>{
         io.emit("displayUsername", (username));
     });
 
+    //socket to display username for messages to only the user themselves
     socket.on('showUsernamePrivate', (username) =>{
         socket.emit("displayUsername", (username));
     });
 
+    //socket to display messages to everyone
     socket.on('sendToAll', (message) =>{
         io.emit("displayMessage", (message));
     });
 
+    //socket to display messages to only the user themselves
     socket.on('sendToMe', (message) =>{
         socket.emit("displayMessage", (message));
     });
