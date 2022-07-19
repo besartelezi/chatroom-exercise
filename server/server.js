@@ -31,4 +31,9 @@ io.on('connection', (socket) => {
     socket.on('sendToAll', (message) =>{
         io.emit("displayMessage", (message));
     });
+
+    socket.on('sendToMe', (message) =>{
+        socket.emit("displayMessage", (message));
+        console.log('socket part works');
+    });
 });

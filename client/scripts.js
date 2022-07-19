@@ -2,21 +2,34 @@
 let socket = io.connect();
 //where all messages are shown
 const targetMessages = document.getElementById('allMessagesBox');
-//message that user inputs
+
+//sends the message to be shown by all
+function sendMessageAll () {
+    //message that the user inputs
+    let message = document.getElementById('messageBox').value;
+    socket.emit('sendToAll', (message));
+}
+
+//sends the message to be shown by only yourself
+function sendMessageMyself () {
+    //message that the user inputs
+    let message = document.getElementById('messageBox').value;
+    socket.emit('sendToMe', (message));
+    console.log('button works')
+
+}
 
 //shows all messages
-//there is currently a bug, the messages keep incrementing
-function sendMessage () {
-    let message = document.getElementById('messageBox').value;
-    socket.emit('sendToAll', (message ));
-    //socket.on kept incrementing the amount of times it was activated
-    //I changed it to socket.once, so it will be called upon just once
-    socket.once('displayMessage', (message) => {
-        console.log(message)
-        targetMessages.innerHTML += '<br>'+ message;
-    });
-}
+socket.on('displayMessage', (message) => {
+    console.log('display works')
+    targetMessages.innerHTML += '<br>'+ message;
+
+});
 
 //defines send to all button and adds event listener
 const sendAllButton = document.getElementById('sendAll');
-sendAllButton.addEventListener("click", sendMessage);
+sendAllButton.addEventListener("click", sendMessageAll);
+
+//defines send to myself button and adds event listener
+const sendMyselfButton = document.getElementById('sendMyself');
+sendMyselfButton.addEventListener("click", sendMessageMyself)
