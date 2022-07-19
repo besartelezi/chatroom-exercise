@@ -85,18 +85,18 @@ From this point, you can see the steps of the assignment we should follow.
         });
   ```
     - [x] So now your client is waiting for the call to 'displayMessage' and then it will add that message to your target div.
-    - [ ] Try connecting with a few browser tabs and sending messages to each other.
-- [ ] So now we can send a message to everyone, let's see if we can send some messages that only the sender can see.
-    - [ ] In your client, replicate the 'sendToAll' emit but now change it to be 'sendToMe'.
-    - [ ] Now in the server you also have to make an observer for the message "sendToMe", so go ahead and replicate the "sendToAll" observer in the server.
-    - [ ] Now instead of doing an io.emit, we are going to do a socket.emit. The difference here is that if you emit to io, all connected clients will receive the message, whereas the socket.emit will only send it back to the socket of which it received the message.
+    - [x] Try connecting with a few browser tabs and sending messages to each other.
+- [x] So now we can send a message to everyone, let's see if we can send some messages that only the sender can see.
+    - [x] In your client, replicate the 'sendToAll' emit but now change it to be 'sendToMe'.
+    - [x] Now in the server you also have to make an observer for the message "sendToMe", so go ahead and replicate the "sendToAll" observer in the server.
+    - [x] Now instead of doing an io.emit, we are going to do a socket.emit. The difference here is that if you emit to io, all connected clients will receive the message, whereas the socket.emit will only send it back to the socket of which it received the message.
     - [ ] Try it out by opening some tabs and send a message to yourself. If only that client can see it, and the others don't receive it you've completed this step
-- [ ] Now we have all the tools we need to make a basic chatroom. The requirements you need to add will come with a small tip on how to achieve them.
+- [x] Now we have all the tools we need to make a basic chatroom. The requirements you need to add will come with a small tip on how to achieve them.
 
 ### Must-have features
 
 - [ ] Make a UI that makes it easy for people to send messages in this chatroom.
-- [ ] It must be possible to send a message to everyone or to yourself
+- [x] It must be possible to send a message to everyone or to yourself
 - [ ] Make sure we can identify who sent the message through a username.
     - [ ] We could make a local variable and prompt the user to choose a username
     - [ ] We can then emit this username along with the sent message to keep track of who sent what.
@@ -146,3 +146,12 @@ Once I did that, everything worked smoothly.
 
 At that moment the only thought in my head was "I thank the Lord that I don't have gargantuan hands" because the facepalm I did after this realization would've broken the sound barrier.
 
+## Styling Gone Wrong! The Inner Turmoil of Bes-ART
+When starting out on this assignment, I had but one goal in mind.
+To throw away every single thought I had about good design, and create the most awful-looking, vile, grotesque, old-school chatroom imaginable.
+Years of Art School, Graphic Designing and 'Less is More'-propaganda will be thrown away.
+
+I do hope, that I do not lose my own humanity in the process, all for the sake of memes...
+I hope I can make myself proud on this assignment and achieve this personal goal of mine.
+
+![alt-text](images/graphic_design_is_my_passion.jpg)
