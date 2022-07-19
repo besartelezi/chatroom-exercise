@@ -1,6 +1,9 @@
 //requiring express and http to make it easier to host our client
 const express = require('express');
-const http = require('http');
+const http = require('http')
+
+//counter variable used to count amount of visitors
+let counter = 0
 
 //defining the application
 const app = express();
@@ -17,8 +20,11 @@ server.listen(8080, () =>{
     console.log("server running on "+8080);
 });
 
+//requires socket.io
 const io = require('socket.io')(server);
 
+//shows in client when a user has joined chatroom
 io.on('connection', (socket) => {
-    console.log('someone connected');
+    console.log(counter+' someone connected');
+    counter++
 });
