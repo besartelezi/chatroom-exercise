@@ -28,12 +28,20 @@ io.on('connection', (socket) => {
     console.log(counter+' someone connected');
     counter++
 
+    socket.on('showUsername', (username) =>{
+        io.emit("displayUsername", (username));
+    });
+
+    socket.on('showUsernamePrivate', (username) =>{
+        socket.emit("displayUsername", (username));
+    });
+
     socket.on('sendToAll', (message) =>{
         io.emit("displayMessage", (message));
     });
 
     socket.on('sendToMe', (message) =>{
         socket.emit("displayMessage", (message));
-        console.log('socket part works');
     });
+
 });
