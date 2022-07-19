@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<h1>Welcome to The Chatroom of Doom</h1>
+<h2>Where villains of E.V.I.L. can talk badly about those darn heroes!</h2>
+
+<input type="text" id ="messageBox" name="message"><br><br>
+<button type="submit" name="sendAll" id="sendAll">Send to All</button>
+<button type="submit" name="sendMyself">Send to Myself</button>
+
+<div id="allMessagesBox" class="allMessagesBox"></div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="scripts.js"></script>
