@@ -104,24 +104,26 @@ From this point, you can see the steps of the assignment we should follow.
   - [x] Create a div
   - [x] Add some boilerplate names
   - [x] Add some styling, put it next to the chatroom
-  - [ ] Stare at the JS until you know how to make this darn thing work!
-    - A user comes to the website
-    - They enter their name
-    - [x] Once the name has been entered, the username needs to show up on the chatroom
-      - Now, the name gets only added when a user joins, but all previously joined users do not show up on the list of the newly joined user.
-- [ ] List of usernames in chatroom
   - [x] Person joins the chatroom
   - [x] Person enters their username
   - [x] Client socket.emits this username to server
   - [x] Server adds that username to an array called allUserNames
   - [x] Server io.emits that array to the client
-    - [ ] Array of active users is able to be console logged
+    - [x] Array of active users is able to be console logged
+    - There are still a lot of bugs doing it this way, so I will look into the socket.id's
   - [ ] Function in client loops through this array according to its length, and shows every username on the screen
     - [ ] Find a way to delete usernames of users who aren't active anymore
+      - Can't work with disconnect socket!!
+      - [ ] Research socket #id's
+      - [ ] Check for which socket id's are active, not which ones are removed.
+      - [ ] Create array of only active socket #id's
+      - [ ] Only show active sockets
+      - [ ] Doing it this way, I should normally not be required to add a delete function if a user leaves the chatroom
 - [ ] Implement something funny! The sky is the limit! (it can be very simple if you want)
-   - [ ] For example, you could make a functionality to make someone else's font size obscurely small!
-   - [ ] You could implement a feature where you can speak with someone else's username
-   - [ ] AND SO MUCH MORE -> BE CREATIVE
+   - For example, you could make a functionality to make someone else's font size obscurely small!
+   - You could implement a feature where you can speak with someone else's username
+   - AND SO MUCH MORE -> BE CREATIVE
+   - 
 
 ### Nice-to-have features
 
