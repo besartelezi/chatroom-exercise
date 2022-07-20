@@ -101,10 +101,27 @@ From this point, you can see the steps of the assignment we should follow.
     - [x] We could make a local variable and prompt the user to choose a username
     - [x] We can then emit this username along with the sent message to keep track of who sent what.
 - [ ] Make a list to show everyone who is connected to the chatroom
+  - [x] Create a div
+  - [x] Add some boilerplate names
+  - [x] Add some styling, put it next to the chatroom
+  - [ ] Stare at the JS until you know how to make this darn thing work!
+    - A user comes to the website
+    - They enter their name
+    - [x] Once the name has been entered, the username needs to show up on the chatroom
+      - Now, the name gets only added when a user joins, but all previously joined users do not show up on the list of the newly joined user.
+- [ ] List of usernames in chatroom
+  - [x] Person joins the chatroom
+  - [x] Person enters their username
+  - [x] Client socket.emits this username to server
+  - [x] Server adds that username to an array called allUserNames
+  - [x] Server io.emits that array to the client
+    - [ ] Array of active users is able to be console logged
+  - [ ] Function in client loops through this array according to its length, and shows every username on the screen
+    - [ ] Find a way to delete usernames of users who aren't active anymore
 - [ ] Implement something funny! The sky is the limit! (it can be very simple if you want)
-    - [ ] For example, you could make a functionality to make someone else's font size obscurely small!
-    - [ ] You could implement a feature where you can speak with someone else's username
-    - [ ] AND SO MUCH MORE -> BE CREATIVE
+   - [ ] For example, you could make a functionality to make someone else's font size obscurely small!
+   - [ ] You could implement a feature where you can speak with someone else's username
+   - [ ] AND SO MUCH MORE -> BE CREATIVE
 
 ### Nice-to-have features
 
@@ -152,6 +169,13 @@ To throw away every single thought I had about good design, and create the most 
 Years of Art School, Graphic Designing and 'Less is More'-propaganda will be thrown away.
 
 I do hope, that I do not lose my own humanity in the process, all for the sake of memes...
+But all jokes aside, I do think this is a very good learning experience.
+Until now, I have been using the 'Less is More' method, designing everything the way I'd like it to be.
+But I think this has really narrowed down my way of thinking and just keeps me repeating the same stuff the entire time.
+
+Trying to make it look as ugly as possible forces me to try out **a lot** of new stuff I'd normally never even imagine to try.
+Making the UI look as ugly as possible, while still making it clear for the user how to use it.
+That's my own personal goal.
 I hope I can make myself proud on this assignment and achieve this personal goal of mine.
 
 ![alt-text](images/graphic_design_is_my_passion.jpg)
@@ -165,3 +189,4 @@ Why, you may ask? Because...
 ![alt-text](images/60-percent.gif)
 
 The amount of weird bugs that were fixed like this is both as staggering as it is headache-inducing.
+
