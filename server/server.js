@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http')
 
 //counter variable used to count amount of visitors
-let counter = 0
+let counter = 1
 
 //defining the application
 const app = express();
@@ -23,10 +23,24 @@ server.listen(8080, () =>{
 //requires socket.io
 const io = require('socket.io')(server);
 
+let allUserNames = []
+
 //shows in client when a user has joined chatroom
 io.on('connection', (socket) => {
-    console.log(counter+' someone connected');
-    counter++
+    if (1 === counter) {
+        console.log(counter + ' Villain of E.V.I.L. has connected nyehaha!');
+        counter++
+    }
+    else {
+        console.log(counter + ' Villains of E.V.I.L. have connected nyehaha!');
+        counter++
+    }
+
+    //socket to display username when user joins the chatroom
+    socket.on('showUsernameOnline', (username) =>{
+        allUserNames.push(username);
+        io.emit("displayUsernameOnline", (allUserNames));
+    });
 
     //socket to display username for messages to all
     socket.on('showUsername', (username) =>{
