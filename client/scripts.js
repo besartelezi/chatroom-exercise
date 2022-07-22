@@ -15,7 +15,7 @@ window.onload = function createUsername () {
     else {
         username = user;
     }
-    socket.emit('showUsernameOnline', (username))
+    socket.emit('newUser', (username))
 }
 
 //where all messages are shown
@@ -39,12 +39,29 @@ function sendMessageMyself () {
     socket.emit('sendToMe', (message));
 }
 
-socket.on('displayUsernameOnline', (allUserNames) => {
-    console.log(allUserNames);
-    for (let i = 0; i<allUserNames.length; i++) {
-        userList.innerHTML += allUserNames[i] + '<br>';
-    }
+socket.on('showUsers', data => {
+    userList.append(data[socket.id])
 })
+
+socket.on('onlineUsers', data => {
+    showOnlineUsers(data);
+})
+
+function showOnlineUsers(array){
+    userList.innerHTML = "";
+
+    array.forEach(user =>{
+        console.log(user)
+        let list = document.createElement('li');
+        list.innerText = user;
+        userList.append(list);
+    })
+
+}
+
+
+
+
 
 //displays username on messages that everyone can see
 socket.on('displayUsername', (username) => {

@@ -23,8 +23,8 @@ server.listen(8080, () =>{
 //requires socket.io
 const io = require('socket.io')(server);
 
-let allUserNames = [];
-let allSocketIds = [];
+user = {};
+onlineUsers = [];
 //find a way to view all socket Id's of active users
 
 //shows in client when a user has joined chatroom
@@ -38,14 +38,20 @@ io.on('connection', (socket) => {
         counter++
     }
 
+    socket.on('newUser', name => {
+        user[socket.id] = name;
+        console.log(socket.id)
+        onlineUsers.push(user[socket.id]);
+        io.emit('onlineUsers', onlineUsers);
+        console.log(onlineUsers);
+    })
 
-    console.log(socket.id);
-
-
-    //socket to display username when user joins the chatroom
-    socket.on('showUsernameOnline', (username) =>{
-        allUserNames.push(username);
-        io.emit("displayUsernameOnline", (allUserNames));
+    //When someone disconnects, notify the client and lower the counter
+    socket.on("disconnect", () => {
+        counter--;
+        console.log("Connection with one of the Villains has been lost uwu");
+        deletingOfflineUsers(user[socket.id]);
+        io.emit('onlineUsers', onlineUsers);
     });
 
     //socket to display username for messages to all
@@ -68,10 +74,12 @@ io.on('connection', (socket) => {
         socket.emit("displayMessage", (message));
     });
 
-    //When someone disconnects, notify the client and lower the counter
-    socket.on("disconnect", () => {
-        counter--;
-        console.log("Connection with one of the Villains has been lost uwu");
-    });
-
 });
+
+
+function deletingOfflineUsers(user){
+    let index = onlineUsers.indexOf(user);
+    //console.log(index);
+    onlineUsers.splice(index, 1);
+    return onlineUsers;
+    }
