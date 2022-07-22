@@ -9,6 +9,9 @@ window.onload = function createUsername () {
     if (user == null || user === " " || user === "") {
         username = "Loser-who-thinks-they-are-too-cool-for-usernames"
     }
+    else if (user.includes("tim") || user.includes("sicco")) {
+        window.location = "https://www.youtube.com/watch?v=J9cwsKHjTEk";
+    }
     else {
         username = user;
     }
