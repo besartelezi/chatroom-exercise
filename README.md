@@ -101,6 +101,8 @@ From this point, you can see the steps of the assignment we should follow.
     - [x] We could make a local variable and prompt the user to choose a username
     - [x] We can then emit this username along with the sent message to keep track of who sent what.
 - [ ] Make a list to show everyone who is connected to the chatroom
+This is a way that I tried, but there were too many bugs, including one where the list doesn't get updated when someone leaves.
+````
   - [x] Create a div
   - [x] Add some boilerplate names
   - [x] Add some styling, put it next to the chatroom
@@ -111,19 +113,18 @@ From this point, you can see the steps of the assignment we should follow.
   - [x] Server io.emits that array to the client
     - [x] Array of active users is able to be console logged
     - There are still a lot of bugs doing it this way, so I will look into the socket.id's
-  - [ ] Function in client loops through this array according to its length, and shows every username on the screen
-    - [ ] Find a way to delete usernames of users who aren't active anymore
-      - Can't work with disconnect socket!!
-      - [ ] Research socket #id's
-      - [ ] Check for which socket id's are active, not which ones are removed.
-      - [ ] Create array of only active socket #id's
-      - [ ] Only show active sockets
-      - [ ] Doing it this way, I should normally not be required to add a delete function if a user leaves the chatroom
+````
+- [ ] Make a list to show everyone who is connected to the chatroom 2.0
+  - [x] Create an array of objects called onlineUsers
+  - [ ] When a user joins and enters their username, add the socket.id and username to this array
+  - [ ] Show only the username on the client of all active users
+  - [ ] When a user leaves, remove that user from the array
+  - [ ] Once that has been removed, update the online list
 - [ ] Implement something funny! The sky is the limit! (it can be very simple if you want)
-   - For example, you could make a functionality to make someone else's font size obscurely small!
-   - You could implement a feature where you can speak with someone else's username
-   - AND SO MUCH MORE -> BE CREATIVE
-   - 
+        - For example, you could make a functionality to make someone else's font size obscurely small!
+        - You could implement a feature where you can speak with someone else's username
+        - AND SO MUCH MORE -> BE CREATIVE
+
 
 ### Nice-to-have features
 
@@ -192,3 +193,16 @@ Why, you may ask? Because...
 
 The amount of weird bugs that were fixed like this is both as staggering as it is headache-inducing.
 
+## When in doubt, write it out!
+I'm currently struggling a lot with socket.id's, and how to show the usernames of only the users that are online.
+I was able to create a way to show all users, but with lots of bugs and the list doesn't get updated to remove those that have left.
+That's where socket.id's come in.
+As of right now I find socket.id's too overwhelming, especially when trying to implement them to show all online users.
+So I'm going to write everything down in a way that makes sense, one small step at a time.
+
+Through a socket.id I can check if a user is active or not.
+That's because the socket.id will be removed from the server once the user leaves.
+Maybe I can create a class called "User", give it the properties "id" and "username", when a user joins, create a new User and give them those properties.
+But working with classes this late means refactoring a lot of code, so for now, I'll just create objects that have the username and ID in them.
+When disconnecting, the socket.id can still be accessed, so when someone leaves, remove the object with the corresponding socket.id from the onlineUsers array.
+I will update my TO-DO list according to everything I just wrote down.
